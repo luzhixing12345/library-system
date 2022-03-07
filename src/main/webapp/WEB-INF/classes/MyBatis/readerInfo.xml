@@ -20,8 +20,8 @@
         where reader_id = #{reader_id}
     </update>
     <insert id="addReaderInfo" parameterType="com.library.bean.ReaderInfo">
-        insert into reader_info values
-        (null, #{name},#{sex},#{birth},#{address},#{phone})
+        insert into reader_info (name,sex,birth,address,phone) values 
+        (#{name},#{sex},#{birth},#{address},#{phone})
     </insert>
     <select id="getReaderId" resultType="long" parameterType="com.library.bean.ReaderInfo">
         select reader_id from reader_info where
