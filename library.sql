@@ -1,26 +1,22 @@
-CREATE DATABASE library;
-USE library;
 
-SET NAMES utf8;
-START TRANSACTION;
 CREATE TABLE admin ( admin_id BIGINT NOT NULL PRIMARY KEY, password VARCHAR ( 15 ) NOT NULL, username VARCHAR ( 15 ) DEFAULT NULL );
 INSERT INTO admin
 VALUES
 	( 123456, '123456', 'admin' );
 CREATE TABLE book_info (
 	book_id BIGINT NOT NULL PRIMARY KEY,
-	name VARCHAR ( 20 ) NOT NULL,
-	author VARCHAR ( 15 ) NOT NULL,
-	publish VARCHAR ( 20 ) NOT NULL,
+	name VARCHAR ( 50 ) NOT NULL,
+	author VARCHAR ( 50 ) NOT NULL,
+	publish VARCHAR ( 50 ) NOT NULL,
 	ISBN VARCHAR ( 15 ) NOT NULL,
 	introduction text,
-	language VARCHAR ( 4 ) NOT NULL,
+	language VARCHAR ( 20 ) NOT NULL,
 	price DECIMAL ( 10, 2 ) NOT NULL,
 	pub_date date NOT NULL,
 	class_id INT DEFAULT NULL,
 	number INT DEFAULT NULL 
 );
-ALTER TABLE book_info MODIFY book_id BIGINT NOT NULL AUTO_INCREMENT,AUTO_INCREMENT = 1;
+
 INSERT INTO book_info
 VALUES
 	( 1, '大雪中的山庄', '东野圭吾 ', '北京十月文艺出版社', '9787530216835', '东野圭吾长篇小说杰作，中文简体首次出版。 一出没有剧本的舞台剧，为什么能让七个演员赌上全部人生.东野圭吾就是有这样过人的本领，能从充满悬念的案子写出荡气回肠的情感，在极其周密曲折的同时写出人性的黑暗与美丽。 一家与外界隔绝的民宿里，七个演员被要求住满四天，接受导演的考验，但不断有人失踪。难道这并非正常排练，而是有人布下陷阱要杀他们。 那时候我开始喜欢上戏剧和音乐，《大雪中的山庄》一书的灵感就来源于此。我相信这次的诡计肯定会让人大吃一惊。——东野圭吾', '中文', '35.00', '2017-06-01', 9, 1 ),
@@ -37,7 +33,7 @@ VALUES
 	( 12, '少有人走的路', 'M·斯科特·派克 ', '吉林文史出版社', '9787807023777', '这本书处处透露出沟通与理解的意味，它跨越时代限制，帮助我们探索爱的本质，引导我们过上崭新，宁静而丰富的生活；它帮助我们学习爱，也学习独立；它教诲我们成为更称职的、更有理解心的父母。归根到底，它告诉我们怎样找到真正的自我。 正如开篇所言：人生苦难重重。M·斯科特·派克让我们更加清楚：人生是一场艰辛之旅，心智成熟的旅程相当漫长。但是，他没有让我们感到恐惧，相反，他带领我们去经历一系列艰难乃至痛苦的转变，最终达到自我认知的更高境界。', '中文', '26.00', '2007-01-01', 9, 1 ),
 	( 13, '追寻生命的意义', '[奥] 维克多·弗兰克 ', '新华出版社', '9787501162734', '《追寻生命的意义》是一个人面对巨大的苦难时，用来拯救自己的内在世界，同时也是一个关于每个人存在的价值和能者多劳们生存的社会所应担负职责的思考。本书对于每一个想要了解我们这个时代的人来说，都是一部必不可少的读物。这是一部令人鼓舞的杰作……他是一个不可思议的人，任何人都可以从他无比痛苦的经历中，获得拯救自己的经验……高度推荐。', '中文', '12.00', '2003-01-01', 9, 0 ),
 	( 14, '秘密花园', '乔汉娜·贝斯福 ', '北京联合出版公司', '9787550252585', '欢迎来到秘密花园！ 在这个笔墨编织出的美丽世界中漫步吧 涂上你喜爱的颜色，为花园带来生机和活力 发现隐藏其中的各类小生物，与它们共舞 激活创造力，描绘那些未完成的仙踪秘境 各个年龄段的艺术家和“园丁”都可以来尝试喔！', '中文', '42.00', '2015-06-01', 9, 1 );
-CREATE TABLE class_info ( class_id INT NOT NULL PRIMARY KEY, class_name VARCHAR ( 15 ) NOT NULL );
+CREATE TABLE class_info ( class_id INT NOT NULL PRIMARY KEY, class_name VARCHAR ( 60 ) NOT NULL );
 INSERT INTO class_info
 VALUES
 	( 1, '马克思主义' ),
@@ -63,14 +59,14 @@ VALUES
 	( 21, '环境科学' ),
 	( 22, '综合' );
 CREATE TABLE lend_list (
-	ser_num BIGINT NOT NULL PRIMARY KEY,
+	ser_num BIGINT NOT NULL,
 	book_id BIGINT NOT NULL,
 	reader_id BIGINT NOT NULL,
 	lend_date date DEFAULT NULL,
 	back_date date DEFAULT NULL 
-) ENGINE = INNODB DEFAULT CHARSET = utf8;
-ALTER TABLE lend_list MODIFY ser_num BIGINT NOT NULL AUTO_INCREMENT,
-AUTO_INCREMENT = 1;
+);
+
+
 INSERT INTO lend_list
 VALUES
 	( 1, 1, 10000, '2017-03-15', '2017-06-16' ),
@@ -83,22 +79,21 @@ VALUES
 CREATE TABLE reader_info (
 	reader_id BIGINT NOT NULL PRIMARY KEY,
 	name VARCHAR ( 10 ) NOT NULL,
-	sex VARCHAR ( 2 ) NOT NULL,
+	sex VARCHAR ( 20 ) NOT NULL,
 	birth date NOT NULL,
 	address VARCHAR ( 50 ) NOT NULL,
 	phone VARCHAR ( 15 ) NOT NULL 
-) ENGINE = INNODB DEFAULT CHARSET = utf8;
-ALTER TABLE reader_info MODIFY reader_id BIGINT NOT NULL AUTO_INCREMENT,
-AUTO_INCREMENT = 10000;
-INSERT INTO reader_info ( NAME, sex, birth, address, phone )
+);
+
+INSERT INTO reader_info 
 VALUES
-	( '张华', '男', '1995-06-10', '天津市', '12345678900' ),
-	( '王小伟', '男', '1996-02-01', '北京市', '12345678909' ),
-	( '王莞尔', '女', '1995-04-15', '浙江省杭州市', '12345678908' ),
-	( '张明华', '男', '1996-08-29', '陕西省西安市', '12345678907' ),
-	( '李一琛', '男', '1996-01-01', '陕西省西安市', '15123659875' ),
-	( '李二飞', '男', '1996-05-03', '山东省青岛市', '15369874123' );
-CREATE TABLE reader_card ( reader_id BIGINT NOT NULL PRIMARY KEY, username VARCHAR ( 15 ) NOT NULL, password VARCHAR ( 15 ) NOT NULL ) ENGINE = INNODB DEFAULT CHARSET = utf8;
+	(10000, '张华', '男', '1995-06-10', '天津市', '12345678900' ),
+	( 10001, '王小伟', '男', '1996-02-01', '北京市', '12345678909' ),
+	( 10002, '王莞尔', '女', '1995-04-15', '浙江省杭州市', '12345678908' ),
+	(10003,  '张明华', '男', '1996-08-29', '陕西省西安市', '12345678907' ),
+	( 10004, '李一琛', '男', '1996-01-01', '陕西省西安市', '15123659875' ),
+	(10005,  '李二飞', '男', '1996-05-03', '山东省青岛市', '15369874123' );
+CREATE TABLE reader_card ( reader_id BIGINT NOT NULL , username VARCHAR ( 15 ) NOT NULL, password VARCHAR ( 15 ) NOT NULL );
 INSERT INTO reader_card
 VALUES
 	( 10000, '张华', '123456' ),
@@ -107,4 +102,3 @@ VALUES
 	( 10003, '张明华', '123456' ),
 	( 10004, '李一琛', '123456' ),
 	( 10005, '李二飞', '123456' );
-COMMIT;
