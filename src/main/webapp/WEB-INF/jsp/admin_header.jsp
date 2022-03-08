@@ -20,6 +20,17 @@
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white">
+                        论文管理
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="admin_papers.html">全部论文</a></li>
+                        <li class="divider"></li>
+                        <li><a href="paper_add.html">增加论文</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white">
                         读者管理
                         <b class="caret"></b>
                     </a>

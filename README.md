@@ -34,7 +34,7 @@
     ```
     删除数据
     ```shell
-    gsql -d tpch -p 5432 -r -f /opt/software/delete.sql > /opt/software/delete.log
+    gsql -d postgres -p 5432 -r -f /opt/software/delete.sql > /opt/software/delete.log
     ```
     sql中已经添加了权限
 - step2: run

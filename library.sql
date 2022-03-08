@@ -58,6 +58,43 @@ VALUES
 	( 20, '航空、航天' ),
 	( 21, '环境科学' ),
 	( 22, '综合' );
+
+CREATE TABLE paper_info (
+	paper_id BIGSERIAL PRIMARY KEY,
+	name VARCHAR ( 50 ) NOT NULL,
+	author VARCHAR ( 50 ) NOT NULL,
+	publish VARCHAR ( 50 ) NOT NULL,
+	year VARCHAR ( 15 ) NOT NULL,
+	page VARCHAR ( 25) NOT NULL,
+	introduction text,
+	no VARCHAR ( 20 ),
+	vol VARCHAR ( 20 ),
+	doi VARCHAR ( 100 )
+);
+
+
+select setval('paper_info_paper_id_seq',1,false);
+INSERT INTO paper_info (name,author,publish,year,page,introduction,no,vol,doi )
+VALUES 
+	('Deep Residual Learning for Image Recognition','Kaiming He','CVPR','2016','770-778','Deeper neural networks are more difficult to train. We
+present a residual learning framework to ease the training
+of networks that are substantially deeper than those used
+previously. We explicitly reformulate the layers as learning residual functions with reference to the layer inputs, instead of learning unreferenced functions. We provide comprehensive empirical evidence showing that these residual
+networks are easier to optimize, and can gain accuracy from
+considerably increased depth. On the ImageNet dataset we
+evaluate residual nets with a depth of up to 152 layers—8
+deeper than VGG nets [40] but still having lower complexity. An ensemble of these residual nets achieves 3.57% error
+on the ImageNet test set. This result won the 1st place on the
+ILSVRC 2015 classification task. We also present analysis
+on CIFAR-10 with 100 and 1000 layers.
+The depth of representations is of central importance
+for many visual recognition tasks. Solely due to our extremely deep representations, we obtain a 28% relative improvement on the COCO object detection dataset. Deep
+residual nets are foundations of our submissions to ILSVRC
+& COCO 2015 competitions1
+, where we also won the 1st
+places on the tasks of ImageNet detection, ImageNet localization, COCO detection, and COCO segmentation.
+',null,null,'000000');
+
 CREATE TABLE lend_list (
 	ser_num BIGSERIAL PRIMARY KEY,
 	book_id BIGINT NOT NULL,
@@ -103,7 +140,6 @@ VALUES
 	('张明华', '123456' ),
 	('李一琛', '123456' ),
 	('李二飞', '123456' );
-
 
 GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO lzx;
 GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO lzx;

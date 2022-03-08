@@ -1,8 +1,11 @@
+G:\learner_lu\library-system\src\main\java\com\library\service\PaperService.java
 G:\learner_lu\library-system\src\main\java\com\library\dao\BookDao.java
 G:\learner_lu\library-system\src\main\java\com\library\service\ReaderInfoService.java
 G:\learner_lu\library-system\src\main\java\com\library\dao\ReaderInfoDao.java
 G:\learner_lu\library-system\src\main\java\com\library\bean\Lend.java
 G:\learner_lu\library-system\src\main\java\com\library\controller\WebConfig.java
+G:\learner_lu\library-system\src\main\java\com\library\controller\PaperController.java
+G:\learner_lu\library-system\src\main\java\com\library\bean\Paper.java
 G:\learner_lu\library-system\src\main\java\com\library\bean\ReaderInfo.java
 G:\learner_lu\library-system\src\main\java\com\library\service\LendService.java
 G:\learner_lu\library-system\src\main\java\com\library\bean\ReaderCard.java
@@ -18,3 +21,4 @@ G:\learner_lu\library-system\src\main\java\com\library\controller\LendController
 G:\learner_lu\library-system\src\main\java\com\library\dao\ReaderCardDao.java
 G:\learner_lu\library-system\src\main\java\com\library\controller\BookController.java
 G:\learner_lu\library-system\src\main\java\com\library\controller\LoginController.java
+G:\learner_lu\library-system\src\main\java\com\library\dao\PaperDao.java

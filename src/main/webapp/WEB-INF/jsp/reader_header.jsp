@@ -11,8 +11,8 @@
                         图书查询
                     </a>
                 </li>
-                <li>
-                    <a href="paper_info.html" >
+                <li class="active">
+                    <a href="reader_papers.html">
                         论文查询
                     </a>
                 </li>
