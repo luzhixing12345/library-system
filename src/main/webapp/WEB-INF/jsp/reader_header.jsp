@@ -12,6 +12,11 @@
                     </a>
                 </li>
                 <li>
+                    <a href="paper_info.html" >
+                        论文查询
+                    </a>
+                </li>
+                <li>
                     <a href="reader_info.html" >
                         个人信息
                     </a>
