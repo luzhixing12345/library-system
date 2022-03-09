@@ -73,8 +73,10 @@ background-attachment: fixed;">
                 </tr>
                 </tbody>
             </table>
+            <a style="float:right" class="btn btn-warning btn-lg" href="reader_info_edit.html" role="button">修改</a>
         </div>
-        <a class="btn btn-success btn-sm" href="reader_info_edit.html" role="button">修改</a>
+        
+        
     </div>
 </div>
 

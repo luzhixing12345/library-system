@@ -17,7 +17,7 @@ background-attachment: fixed;">
 
 <div id="header" style="padding-bottom: 80px"></div>
 
-<div class="col-xs-6 col-md-offset-3" style="position: relative;">
+<div class="col-md-6 col-md-offset-3" style="position: relative;">
     <div class="panel panel-primary">
         <div class="panel-heading">
             <h3 class="panel-title">编辑《 ${detail.name}》</h3>
@@ -55,12 +55,14 @@ background-attachment: fixed;">
                 </div>
                 <div class="input-group">
                     <span  class="input-group-addon">摘要</span>
-                    <input type="text" class="form-control" name="introduction" id="introduction"  value="${detail.introduction}" >
+                    <textarea class="form-control" rows="3" name="introduction" id="introduction"
+                      placeholder="请输入摘要">${detail.introduction}</textarea>
                 </div>
                 <div class="input-group">
                     <span  class="input-group-addon">下载链接</span>
                     <input type="text" class="form-control" name="doi"  id="doi" value="${detail.doi}">
-                <input type="submit" value="确定" class="btn btn-success btn-sm" class="text-left">
+                </div>
+                <input type="submit" value="确定" class="btn btn-success btn-lg" style="float: right;">
                 <script>
                     $("#addpaper").submit(function () {
                         if($("#name").val() == '' || $("#author").val() == '' || $("#publish").val() == '' ||  $("#year").val() == '' || $("#introduction").val() == '' || $("#doi").val() == ''){

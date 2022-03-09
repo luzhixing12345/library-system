@@ -57,7 +57,7 @@ background-attachment: fixed;">
                 </tr>
                 <tr>
                     <th>下载链接</th>
-                    <td><a href="${detail.doi}" target = "_self">下载</a></td>
+                    <td><a href="${detail.doi}" target = "_self" style="color: rgb(20, 8, 201)">下载</a></td>
                 </tr>
                 </tbody>
             </table>

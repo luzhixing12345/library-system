@@ -60,13 +60,13 @@ background-attachment: fixed;">
                     <td><c:out value="${alog.lendDate}"></c:out></td>
                     <td><c:out value="${alog.backDate}"></c:out></td>
                     <c:if test="${empty alog.backDate}">
-                        <td>未还</td>
+                        <td style="color:coral;">未还</td>
                     </c:if>
                     <c:if test="${!empty alog.backDate}">
-                        <td>已还</td>
+                        <td style="color: aquamarine;">已还</td>
                     </c:if>
                     <c:if test="">
-                        <td>超期</td>
+                        <td style="color: brown;">超期</td>
                     </c:if>
                 </tr>
             </c:forEach>

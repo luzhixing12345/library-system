@@ -1,14 +1,14 @@
 # 图书和论文管理系统设计文档
 
 ## 设计
-- 前端框架 `jsp`
-- 后端框架 `springboot`
+- 前端框架 `bootstrap` + `jQuery`
+- 后端框架 `springboot`+`MyBatis`
 - 项目管理工具 `maven`
 - 数据库 `openGauss`
 
 ## 图书
 - 基本属性:
-  - url(primary key)
+  - book_id(primary key)
   - 书名 作者 出版社 ISBN号 简介 语言 价格 出版时间 分类 剩余数量
   - SQL信息
     ```shell
@@ -41,24 +41,24 @@
 
 ## 论文
 - 基本属性
-  - url(primary key)
-  - 论文名 作者 机构 年份 页数 简介 期数 卷数 DOI号
+  - paper_id(primary key)
+  - 论文名 作者 机构 年份 页数 简介 期数 卷数 DOI号(下载链接)
   - SQL信息
     ```shell
     CREATE TABLE paper_info (
-	  paper_id BIGSERIAL PRIMARY KEY,
-	  name VARCHAR ( 50 ) NOT NULL,
-	  author VARCHAR ( 50 ) NOT NULL,
-  	publish VARCHAR ( 50 ) NOT NULL,
-  	year VARCHAR ( 15 ) NOT NULL,
-  	page VARCHAR ( 25) NOT NULL,
-  	introduction text,
-  	no VARCHAR ( 20 ),
-  	vol VARCHAR ( 20 ),
-  	doi VARCHAR ( 100 )
+    	paper_id BIGSERIAL PRIMARY KEY,
+    	name VARCHAR ( 200 ) NOT NULL,
+    	author VARCHAR ( 50 ) NOT NULL,
+    	publish VARCHAR ( 200 ) NOT NULL,
+    	year VARCHAR ( 15 ) NOT NULL,
+    	page VARCHAR ( 25) NOT NULL,
+    	introduction text,
+    	no VARCHAR ( 20 ),
+    	vol VARCHAR ( 20 ),
+    	doi VARCHAR (200)
     );
     ```
-  - 可被管理员(admin)添加/删除/修改信息,可被读者查阅
+  - 可被管理员(admin)添加/删除/修改信息,可被读者查阅,可以下载论文
 
 - 功能实现
   - [bean](src\main\java\com\library\bean\Paper.java)
@@ -76,12 +76,13 @@
     - SQL信息
       ```shell
       CREATE TABLE reader_info (
-	    reader_id BIGSERIAL PRIMARY KEY,
-	    name VARCHAR ( 10 ) NOT NULL,
-  	  sex VARCHAR ( 20 ) NOT NULL,
-  	  birth date NOT NULL,
-  	  address VARCHAR ( 50 ) NOT NULL,
-  	  phone VARCHAR ( 15 ) NOT NULL 
+      	reader_id BIGSERIAL PRIMARY KEY,
+      	name VARCHAR ( 50) NOT NULL,
+      	reader_type VARCHAR(15),
+      	sex VARCHAR ( 20 ) NOT NULL,
+      	birth date NOT NULL,
+      	address VARCHAR ( 50 ) NOT NULL,
+      	phone VARCHAR ( 15 ) NOT NULL 
       );
       ```
     - 由用户编辑/修改

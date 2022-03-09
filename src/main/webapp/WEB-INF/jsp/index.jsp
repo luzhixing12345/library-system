@@ -1,6 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8"  language="java"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
+<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
+<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
 <head>
     <title>图书馆首页</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -27,7 +30,7 @@
         }
     </style>
 </head>
-<body background="img/timg.jpg" style=" background-repeat:no-repeat ;
+<body background="img/login.jpg" style=" background-repeat:no-repeat ;
 background-size:100% 100%;
 background-attachment: fixed;">
 <c:if test="${!empty error}">
@@ -36,7 +39,8 @@ background-attachment: fixed;">
             window.location.href="login.html";
 </script>
 </c:if>
-<h2 style="text-align: center; color: white; font-family: '华文行楷'; font-size: 500%">图 书 馆</h2>
+<div></div>
+<h2 style="text-align: center; color: rgb(0, 0, 0); font-family: '华文行楷'; font-size: 500% ;margin-top: 100px;">武汉大学图书管理系统</h2>
 
 <div class="panel panel-default" id="login">
     <div class="panel-heading" style="background-color: #fff">

@@ -19,13 +19,12 @@ background-attachment: fixed;">
 
 <div id="header"></div>
 
-<div style="padding: 20px 550px 10px">
+<div style="padding: 20px 1770px 10px">
     <form method="post" action="reader_querybook_do.html" class="form-inline" id="searchform">
-        <div class="input-group">
-            <input type="text" placeholder="输入图书名" class="form-control" id="search" name="searchWord"
-                   class="form-control">
+        <div >
+            <input style="float:right" type="text" placeholder="输入图书名" class="form-control" id="search" name="searchWord">
             <span class="input-group-btn">
-                <input type="submit" value="搜索" class="btn btn-default">
+                <input style="float:right" type="submit" value="搜索" class="btn btn-default">
             </span>
         </div>
     </form>

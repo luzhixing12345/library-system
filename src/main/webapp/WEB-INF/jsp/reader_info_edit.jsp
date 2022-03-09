@@ -25,13 +25,13 @@ background-attachment: fixed;">
         <div class="panel-body">
             <form action="reader_edit_do_r.html" method="post" id="edit" >
                 <div class="input-group">
-                    <span  class="input-group-addon">读者证号</span>
+                    <span  class="input-group-addon">序号</span>
                     <input type="text" readonly="readonly" class="form-control" name="readerId" id="readerId" value="${readerinfo.readerId}">
-                    <span>hello</span>
+                    
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon">姓名</span>
-                    <input type="text" onchange="checkname()" class="form-control" name="name" id="name" value="${readerinfo.name}" >
+                    <input type="text" class="form-control" name="name" id="name" value="${readerinfo.name}" >
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon">类型</span>
@@ -54,7 +54,7 @@ background-attachment: fixed;">
                     <input type="text" class="form-control" name="phone" id="phone"  value="${readerinfo.phone}" >
                 </div>
                 <br/>
-                <input type="submit" value="确定" class="btn btn-success btn-sm" class="text-left">
+                <input style="float:right" type="submit" value="确定" class="btn btn-success btn-lg" >
                 <script>
                     $("#edit").submit(function () {
                         if($("#name").val()==''||$("#sex").val()==''||$("#readType").val()==''||$("#birth").val()==''||$("#address").val()==''||$("#phone").val()==''){

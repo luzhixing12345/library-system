@@ -35,7 +35,7 @@ background-attachment: fixed;">
     </div>
 </c:if>
 
-<div class="col-xs-6 col-md-offset-3" style="position: relative;">
+<div class="col-xs-6 col-md-offset-3" style="position: relative; margin-top: 200px;">
     <div class="panel panel-primary ">
         <div class="panel-heading">
             <h3 class="panel-title">密码修改</h3>
@@ -43,17 +43,17 @@ background-attachment: fixed;">
         <div class="panel-body">
             <form method="post" action="reader_repasswd_do" class="form-inline" id="repasswd">
                 <div class="input-group">
-                    <input type="password" id="oldPasswd" name="oldPasswd" placeholder="输入旧密码" class="form-control"
+                    <input style="margin-bottom: 5px; margin-top:5px" type="password" id="oldPasswd" name="oldPasswd" placeholder="输入旧密码" class="form-control"
                            class="form-control">
-                    <input type="password" id="newPasswd" name="newPasswd" placeholder="输入新密码" class="form-control"
+                    <input style="margin-bottom: 5px; margin-top:5px" type="password" id="newPasswd" name="newPasswd" placeholder="输入新密码" class="form-control"
                            class="form-control">
-                    <input type="password" id="reNewPasswd" name="reNewPasswd" placeholder="再次输入新密码"
+                    <input style="margin-bottom: 5px; margin-top:5px" type="password" id="reNewPasswd" name="reNewPasswd" placeholder="再次输入新密码"
                            class="form-control" class="form-control">
                     <em id="tishi" style="color: red"></em>
                     <br/>
-                    <span>
-                            <input type="submit" value="提交" class="btn btn-default">
-            </span>
+                    <span >
+                            <input style="float:right; margin-bottom: 5px; margin-top:5px" type="submit" value="提交" class="btn btn-success" >
+                    </span>
                 </div>
             </form>
         </div>

@@ -60,7 +60,7 @@ background-attachment: fixed;">
     </c:if>
 </div>
 <div class="panel panel-default" style="width: 90%;margin-left: 5%">
-    <div class="panel-heading" style="background-color: #fff">
+    <div class="panel-heading" style="background-color: rgb(0, 0, 0)">
         <h3 class="panel-title">
             全部图书
         </h3>

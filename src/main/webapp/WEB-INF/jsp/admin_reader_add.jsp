@@ -51,8 +51,8 @@ background-attachment: fixed;">
                     <span class="input-group-addon">电话</span>
                     <input type="text" class="form-control" name="phone" id="phone"  >
                 </div>
-                <input style="align-items: center" type="submit" value="添加" class="btn btn-success btn-sm"
-                       class="text-left">
+                <input type="submit" value="添加" class="btn btn-success btn-lg"
+                       style="float: right; margin-top: 10px;" >
                 <script>
                     function mySubmit(flag){
                         return flag;

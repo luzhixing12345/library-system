@@ -45,15 +45,15 @@ background-attachment: fixed;">
             <form method="post" action="admin_repasswd_do" class="form-inline" id="repasswd">
                 <div class="input-group">
                     <input type="password" id="oldPasswd" name="oldPasswd" placeholder="输入旧密码" class="form-control"
-                           class="form-control">
+                           class="form-control" style="margin-bottom: 5px; margin-top:5px">
                     <input type="password" id="newPasswd" name="newPasswd" placeholder="输入新密码" class="form-control"
-                           class="form-control">
+                           class="form-control" style="margin-bottom: 5px; margin-top:5px">
                     <input type="password" id="reNewPasswd" name="reNewPasswd" placeholder="再次输入新密码"
-                           class="form-control" class="form-control">
+                           class="form-control" class="form-control" style="margin-bottom: 5px; margin-top:5px">
                     <em id="tishi" style="color: red"></em>
                     <br/>
                     <span>
-                            <input type="submit" value="提交" class="btn btn-default">
+                            <input type="submit" value="提交" class="btn btn-success" style="float: right; margin-top:5px;" >
                     </span>
                 </div>
             </form>
