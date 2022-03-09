@@ -16,8 +16,8 @@
         select password from reader_card where reader_id = #{reader_id}
     </select>
     <insert id="addReaderCard">
-        insert into reader_card values
-        (#{reader_id}, #{username}, #{password})
+        insert into reader_card (username,reader_type,password) values
+        (#{username},#{reader_type}, #{password})
     </insert>
     <delete id="deleteReaderCard" parameterType="long">
         delete from reader_card where reader_id = #{reader_id}

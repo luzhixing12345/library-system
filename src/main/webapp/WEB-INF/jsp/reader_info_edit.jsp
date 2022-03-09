@@ -9,6 +9,13 @@
         $(function () {
             $('#header').load('reader_header.html');
         })
+        function checkname(){
+            var name = document.getElementById("name");
+            var regex = /^[\u4e00-\u9fa5]{2,4}$/
+            if (!regex(name)){
+                $(this).parent().next().html("用户名必须是2-4个汉字").css("color", "red");
+            }
+        }
     </script>
 </head>
 <body background="img/lizhi.jpg" style=" background-repeat:no-repeat ;
@@ -30,7 +37,11 @@ background-attachment: fixed;">
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon">姓名</span>
-                    <input type="text" class="form-control" name="name" id="name" value="${readerinfo.name}" >
+                    <input type="text" onchange="checkname()" class="form-control" name="name" id="name" value="${readerinfo.name}" >
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">类型</span>
+                    <input type="text" class="form-control" name="reader_type" id="reader_type" value="${readerinfo.readerType}" >
                 </div>
                 <div class="input-group">
                     <span  class="input-group-addon">性别</span>
@@ -52,8 +63,8 @@ background-attachment: fixed;">
                 <input type="submit" value="确定" class="btn btn-success btn-sm" class="text-left">
                 <script>
                     $("#edit").submit(function () {
-                        if($("#name").val()==''||$("#sex").val()==''||$("#birth").val()==''||$("#address").val()==''||$("#phone").val()==''){
-                            alert("请填入完整图书信息！");
+                        if($("#name").val()==''||$("#sex").val()==''||$("#readType").val()==''||$("#birth").val()==''||$("#address").val()==''||$("#phone").val()==''){
+                            alert("请填入完整读者信息！");
                             return false;
                         }
                     })

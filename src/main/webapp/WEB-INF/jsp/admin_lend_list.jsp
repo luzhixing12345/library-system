@@ -50,6 +50,8 @@ background-attachment: fixed;">
                 <th>流水号</th>
                 <th>图书号</th>
                 <th>读者证号</th>
+                <th>读者姓名</th>
+                <th>读者类型</th>
                 <th>借出日期</th>
                 <th>归还日期</th>
                 <th>删除</th>
@@ -61,6 +63,8 @@ background-attachment: fixed;">
                     <td><c:out value="${alog.ser_num}"></c:out></td>
                     <td><c:out value="${alog.bookId}"></c:out></td>
                     <td><c:out value="${alog.readerId}"></c:out></td>
+                    <td><c:out value="${alog.readerName}"></c:out></td>
+                    <td><c:out value="${alog.readerType}"></c:out></td>
                     <td><c:out value="${alog.lendDate}"></c:out></td>
                     <td><c:out value="${alog.backDate}"></c:out></td>
                     <td>

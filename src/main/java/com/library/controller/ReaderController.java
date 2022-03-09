@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -28,8 +29,9 @@ public class ReaderController {
     @Autowired
     private ReaderCardService readerCardService;
 
-    private ReaderInfo getReaderInfo(long readerId, String name, String sex, String birth, String address, String phone) {
+    private ReaderInfo getReaderInfo(long readerId, String name,String reader_type, String sex, String birth, String address, String phone) {
         ReaderInfo readerInfo = new ReaderInfo();
+        
         Date date = new Date();
         try {
             SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
@@ -39,6 +41,7 @@ public class ReaderController {
         }
         readerInfo.setAddress(address);
         readerInfo.setName(name);
+        readerInfo.setReaderType(reader_type);
         readerInfo.setReaderId(readerId);
         readerInfo.setPhone(phone);
         readerInfo.setSex(sex);
@@ -84,9 +87,10 @@ public class ReaderController {
     }
 
     @RequestMapping("reader_edit_do.html")
-    public String readerInfoEditDo(HttpServletRequest request, String name, String sex, String birth, String address, String phone, RedirectAttributes redirectAttributes) {
+    public String readerInfoEditDo(HttpServletRequest request, String name, String reader_type,String sex, String birth, String address, String phone, RedirectAttributes redirectAttributes) {
+        
         long readerId = Long.parseLong(request.getParameter("readerId"));
-        ReaderInfo readerInfo = getReaderInfo(readerId, name, sex, birth, address, phone);
+        ReaderInfo readerInfo = getReaderInfo(readerId, name,reader_type, sex, birth, address, phone);
         if (readerInfoService.editReaderInfo(readerInfo) && readerInfoService.editReaderCard(readerInfo)) {
             redirectAttributes.addFlashAttribute("succ", "读者信息修改成功！");
         } else {
@@ -101,8 +105,8 @@ public class ReaderController {
     }
 
     @RequestMapping("reader_add_do.html")
-    public String readerInfoAddDo(String name, String sex, String birth, String address, String phone, String password, RedirectAttributes redirectAttributes) {
-        ReaderInfo readerInfo = getReaderInfo(0, name, sex, birth, address, phone);
+    public String readerInfoAddDo(String name,String reader_type, String sex, String birth, String address, String phone, String password, RedirectAttributes redirectAttributes) {
+        ReaderInfo readerInfo = getReaderInfo(0, name,  reader_type, sex, birth, address, phone);
         long readerId = readerInfoService.addReaderInfo(readerInfo);
         readerInfo.setReaderId(readerId);
         if (readerId > 0 && readerCardService.addReaderCard(readerInfo, password)) {
@@ -123,9 +127,9 @@ public class ReaderController {
     }
 
     @RequestMapping("reader_edit_do_r.html")
-    public String readerInfoEditDoReader(HttpServletRequest request, String name, String sex, String birth, String address, String phone, RedirectAttributes redirectAttributes) {
+    public String readerInfoEditDoReader(HttpServletRequest request, String name, String reader_type,String sex, String birth, String address, String phone, RedirectAttributes redirectAttributes) {
         ReaderCard readerCard = (ReaderCard) request.getSession().getAttribute("readercard");
-        ReaderInfo readerInfo = getReaderInfo(readerCard.getReaderId(), name, sex, birth, address, phone);
+        ReaderInfo readerInfo = getReaderInfo(readerCard.getReaderId(), name,reader_type, sex, birth, address, phone);
         if (readerInfoService.editReaderInfo(readerInfo) && readerInfoService.editReaderCard(readerInfo)) {
             ReaderCard readerCardNew = loginService.findReaderCardByReaderId(readerCard.getReaderId());
             request.getSession().setAttribute("readercard", readerCardNew);

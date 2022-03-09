@@ -52,6 +52,10 @@ background-attachment: fixed;">
                     <td>${readerinfo.name}</td>
                 </tr>
                 <tr>
+                    <th>类型</th>
+                    <td>${readerinfo.readerType}</td>
+                </tr>
+                <tr>
                     <th>性别</th>
                     <td>${readerinfo.sex}</td>
                 </tr>

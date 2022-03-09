@@ -93,53 +93,61 @@ residual nets are foundations of our submissions to ILSVRC
 & COCO 2015 competitions1
 , where we also won the 1st
 places on the tasks of ImageNet detection, ImageNet localization, COCO detection, and COCO segmentation.
-',null,null,'000000');
+',8,11,'000000');
 
 CREATE TABLE lend_list (
 	ser_num BIGSERIAL PRIMARY KEY,
 	book_id BIGINT NOT NULL,
 	reader_id BIGINT NOT NULL,
+	reader_name VARCHAR ( 15 ) NOT NULL,
+	reader_type VARCHAR (15) NOT NULL,
 	lend_date date DEFAULT NULL,
 	back_date date DEFAULT NULL 
 );
 select setval('lend_list_ser_num_seq',1,false);
 
-INSERT INTO lend_list (book_id,reader_id,lend_date,back_date)
+INSERT INTO lend_list (book_id,reader_id,reader_name,reader_type,lend_date,back_date)
 VALUES
-	( 1, 10000, '2017-03-15', '2017-06-16' ),
-	( 2, 10001, '2017-06-10', '2017-09-02' ),
-	( 3, 10003, '2017-06-12', '2017-09-02' ),
-	( 4, 10000, '2017-03-15', '2017-09-03' ),
-	( 5, 10002, '2017-06-15', NULL ),
-	( 6, 10000, '2017-06-15', NULL ),
-	( 1, 10001, '2017-09-02', '2017-09-02' );
+	( 1, 10000, '张华','老师','2017-03-15', '2017-06-16' ),
+	( 2, 10001, '王小伟','老师','2017-06-10', '2017-09-02' ),
+	( 3, 10003, '张明华','学生','2017-06-12', '2017-09-02' ),
+	( 4, 10000, '张华','老师','2017-03-15', '2017-09-03' ),
+	( 5, 10002, '王莞尔','老师','2017-06-15', NULL ),
+	( 6, 10000, '张华','老师','2017-06-15', NULL ),
+	( 1, 10001, '王小伟','老师','2017-09-02', '2017-09-02' );
 CREATE TABLE reader_info (
 	reader_id BIGSERIAL PRIMARY KEY,
-	name VARCHAR ( 10 ) NOT NULL,
+	name VARCHAR ( 50) NOT NULL,
+	reader_type VARCHAR(15),
 	sex VARCHAR ( 20 ) NOT NULL,
 	birth date NOT NULL,
 	address VARCHAR ( 50 ) NOT NULL,
 	phone VARCHAR ( 15 ) NOT NULL 
 );
 select setval('reader_info_reader_id_seq',10000,false);
-INSERT INTO reader_info (name,sex,birth,address,phone)
+INSERT INTO reader_info (name,reader_type,sex,birth,address,phone)
 VALUES
-	('张华', '男', '1995-06-10', '天津市', '12345678900' ),
-	('王小伟', '男', '1996-02-01', '北京市', '12345678909' ),
-	('王莞尔', '女', '1995-04-15', '浙江省杭州市', '12345678908' ),
-	('张明华', '男', '1996-08-29', '陕西省西安市', '12345678907' ),
-	('李一琛', '男', '1996-01-01', '陕西省西安市', '15123659875' ),
-	('李二飞', '男', '1996-05-03', '山东省青岛市', '15369874123' );
-CREATE TABLE reader_card ( reader_id BIGSERIAL PRIMARY KEY , username VARCHAR ( 15 ) NOT NULL, password VARCHAR ( 15 ) NOT NULL );
+	('张华',  '老师','男','1995-06-10', '天津市', '12345678900' ),
+	('王小伟', '老师','男', '1996-02-01', '北京市', '12345678909' ),
+	('王莞尔', '老师','女', '1995-04-15', '浙江省杭州市', '12345678908' ),
+	('张明华', '学生','男', '1996-08-29', '陕西省西安市', '12345678907' ),
+	('李一琛', '学生','男', '1996-01-01', '陕西省西安市', '15123659875' ),
+	('李二飞', '学生','男', '1996-05-03', '山东省青岛市', '15369874123' );
+CREATE TABLE reader_card (
+	reader_id BIGSERIAL PRIMARY KEY ,
+	username VARCHAR ( 15 ) NOT NULL,
+	reader_type VARCHAR (15) NOT NULL,
+	password VARCHAR ( 15 ) NOT NULL
+);
 select setval('reader_card_reader_id_seq',10000,false);
-INSERT INTO reader_card (username,password)
+INSERT INTO reader_card (username,reader_type,password)
 VALUES
-	('张华', '123456' ),
-	('王小伟', '123456' ),
-	('王莞尔', '123456' ),
-	('张明华', '123456' ),
-	('李一琛', '123456' ),
-	('李二飞', '123456' );
+	('张华', '老师','123456' ),
+	('王小伟', '老师','123456' ),
+	('王莞尔', '老师','123456' ),
+	('张明华','学生', '123456' ),
+	('李一琛','学生', '123456' ),
+	('李二飞', '学生','123456' );
 
 GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO lzx;
 GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO lzx;

@@ -9,8 +9,8 @@
         update book_info set number = number + 1 where book_id = #{book_id}
     </update>
     <insert id="lendBookOne">
-        insert into lend_list (book_id,reader_id,lend_date,back_date) values 
-        (#{book_id},#{reader_id},now(),null)
+        insert into lend_list (book_id,reader_id,reader_name,reader_type,lend_date,back_date) values 
+        (#{book_id},#{reader_id},#{reader_name},#{reader_type},now(),null)
     </insert>
     <update id="lendBookTwo" parameterType="long">
         update book_info set number = number - 1 where book_id = #{book_id}

@@ -29,10 +29,12 @@ public class LendDao {
         return sqlSessionTemplate.update(NAMESPACE + "returnBookTwo", book_id);
     }
 
-    public int lendBookOne(final long book_id, final long reader_id) {
+    public int lendBookOne(final long book_id, final long reader_id,final String reader_name,String reader_type) {
         Map<String, Object> map = new HashMap<>();
         map.put("book_id", book_id);
         map.put("reader_id", reader_id);
+        map.put("reader_name",reader_name);
+        map.put("reader_type",reader_type);
         return sqlSessionTemplate.insert(NAMESPACE + "lendBookOne", map);
     }
 

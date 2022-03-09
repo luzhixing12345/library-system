@@ -8,6 +8,8 @@ public class Lend implements Serializable {
     private long ser_num;
     private long book_id;
     private long reader_id;
+    private String reader_name;
+    private String reader_type;
     private Date lend_date;
     private Date back_date;
 
@@ -17,6 +19,20 @@ public class Lend implements Serializable {
 
     public void setReaderId(long reader_id) {
         this.reader_id = reader_id;
+    }
+
+    public String getReaderName(){
+        return reader_name;
+    }
+
+    public void setReaderName(String reader_name){
+        this.reader_name = reader_name;
+    }
+    public String getReaderType(){
+        return reader_type;
+    }
+    public void setReaderType(String reader_type){
+        this.reader_type = reader_type;
     }
 
     public long getBookId() {

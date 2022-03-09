@@ -11,17 +11,17 @@
         delete from reader_info where reader_id = #{reader_id}
     </delete>
     <update id="editReaderInfo" parameterType="com.library.bean.ReaderInfo">
-        update reader_info set name = #{name} , sex = #{sex},
+        update reader_info set name = #{name} , reader_type = #{reader_type},sex = #{sex},
         birth = #{birth} ,address = #{address} ,phone = #{phone}
         where reader_id = #{reader_id}
     </update>
     <update id="editReaderCard" parameterType="com.library.bean.ReaderInfo">
-        update reader_card set username = #{name}
+        update reader_card set username = #{name},reader_type = #{reader_type}
         where reader_id = #{reader_id}
     </update>
     <insert id="addReaderInfo" parameterType="com.library.bean.ReaderInfo">
-        insert into reader_info (name,sex,birth,address,phone) values 
-        (#{name},#{sex},#{birth},#{address},#{phone})
+        insert into reader_info (name,reader_type,sex,birth,address,phone) values 
+        (#{name},#{reader_type},#{sex},#{birth},#{address},#{phone})
     </insert>
     <select id="getReaderId" resultType="long" parameterType="com.library.bean.ReaderInfo">
         select reader_id from reader_info where

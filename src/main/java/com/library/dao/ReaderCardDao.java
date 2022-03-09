@@ -38,9 +38,11 @@ public class ReaderCardDao {
     public int addReaderCard(final ReaderInfo readerInfo, final String password) {
         String username = readerInfo.getName();
         long reader_id = readerInfo.getReaderId();
+        String reader_type = readerInfo.getReaderType();
         Map<String, Object> map = new HashMap<>();
         map.put("reader_id", reader_id);
         map.put("username", username);
+        map.put("reader_type",reader_type);
         map.put("password", password);
         return sqlSessionTemplate.update(NAMESPACE + "addReaderCard", map);
     }

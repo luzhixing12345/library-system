@@ -27,6 +27,10 @@ background-attachment: fixed;">
                     <input type="text" class="form-control" name="name" id="name" value="${readerInfo.name}" >
                 </div>
                 <div class="input-group">
+                    <span class="input-group-addon">类型</span>
+                    <input type="text" class="form-control" name="reader_type" id="reader_type" value="${readerInfo.readerType}" >
+                </div>
+                <div class="input-group">
                     <span  class="input-group-addon">性别</span>
                     <input type="text" class="form-control" name="sex" id="sex"  value="${readerInfo.sex}" >
                 </div>
@@ -45,7 +49,7 @@ background-attachment: fixed;">
                 <input type="submit" value="确定" class="btn btn-success btn-sm" class="text-left">
                 <script>
                     $("#readeredit").submit(function () {
-                        if($("#name").val()==''||$("#sex").val()==''||$("#birth").val()==''||$("#address").val()==''||$("#phone").val()==''){
+                        if($("#name").val()==''||$("#sex").val()==''||$("#readType").val()==''||$("#birth").val()==''||$("#address").val()==''||$("#phone").val()==''){
                             alert("请填入完整读者信息！");
                             return false;
                         }

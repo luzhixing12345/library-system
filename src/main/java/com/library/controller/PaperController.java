@@ -23,17 +23,6 @@ public class PaperController {
     @Autowired
     private PaperService paperService;
 
-
-    private Date getDate(String pubstr) {
-        try {
-            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-            return df.parse(pubstr);
-        } catch (ParseException e) {
-            e.printStackTrace();
-            return new Date();
-        }
-    }
-
     @RequestMapping("/querypaper.html")
     public ModelAndView queryPaperDo(String searchWord) {
         if (paperService.matchPaper(searchWord)) {
@@ -101,6 +90,7 @@ public class PaperController {
         return "redirect:/admin_papers.html";
     }
 
+    
     @RequestMapping("/admin_paper_detail.html")
     public ModelAndView adminPaperDetail(HttpServletRequest request) {
         long paperId = Long.parseLong(request.getParameter("paperId"));
