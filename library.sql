@@ -61,15 +61,15 @@ VALUES
 
 CREATE TABLE paper_info (
 	paper_id BIGSERIAL PRIMARY KEY,
-	name VARCHAR ( 50 ) NOT NULL,
+	name VARCHAR ( 200 ) NOT NULL,
 	author VARCHAR ( 50 ) NOT NULL,
-	publish VARCHAR ( 50 ) NOT NULL,
+	publish VARCHAR ( 200 ) NOT NULL,
 	year VARCHAR ( 15 ) NOT NULL,
 	page VARCHAR ( 25) NOT NULL,
 	introduction text,
 	no VARCHAR ( 20 ),
 	vol VARCHAR ( 20 ),
-	doi VARCHAR ( 100 )
+	doi VARCHAR (200)
 );
 
 
@@ -93,7 +93,38 @@ residual nets are foundations of our submissions to ILSVRC
 & COCO 2015 competitions1
 , where we also won the 1st
 places on the tasks of ImageNet detection, ImageNet localization, COCO detection, and COCO segmentation.
-',8,11,'000000');
+','8','11','https://github.com/learner-lu/library-system/releases/download/v0.0.1/He_Deep_Residual_Learning_CVPR_2016_paper-10w.pdf'),
+('BERT-Pre-training of Deep Bidirectional Transformers for Language Understanding',
+'Jacob Devlin','NAACL',
+'2018',
+'501-510',
+'We introduce a new language representation model called BERT, which stands for
+Bidirectional Encoder Representations from
+Transformers. Unlike recent language representation models (Peters et al., 2018a; Radford et al., 2018), BERT is designed to pretrain deep bidirectional representations from
+unlabeled text by jointly conditioning on both
+left and right context in all layers. As a result, the pre-trained BERT model can be finetuned with just one additional output layer
+to create state-of-the-art models for a wide
+range of tasks, such as question answering and
+language inference, without substantial taskspecific architecture modifications.
+BERT is conceptually simple and empirically
+powerful. It obtains new state-of-the-art results on eleven natural language processing
+tasks, including pushing the GLUE score to
+80.5% (7.7% point absolute improvement),
+MultiNLI accuracy to 86.7% (4.6% absolute
+improvement), SQuAD v1.1 question answering Test F1 to 93.2 (1.5 point absolute improvement) and SQuAD v2.0 Test F1 to 83.1
+(5.1 point absolute improvement).','10','11',
+'https://github.com/learner-lu/library-system/releases/download/v0.0.1/BERT.pre-training.of.deep.bidirection.transformers.for.language.unsderstanding.pdf'),
+('Momentum Contrast for Unsupervised Visual Representation Learning','Kaiming He','CVPR','2020','650-659','We present Momentum Contrast (MoCo) for unsupervised visual representation learning. From a perspective on
+contrastive learning [29] as dictionary look-up, we build
+a dynamic dictionary with a queue and a moving-averaged
+encoder. This enables building a large and consistent dictionary on-the-fly that facilitates contrastive unsupervised
+learning. MoCo provides competitive results under the
+common linear protocol on ImageNet classification. More
+importantly, the representations learned by MoCo transfer
+well to downstream tasks. MoCo can outperform its supervised pre-training counterpart in 7 detection/segmentation
+tasks on PASCAL VOC, COCO, and other datasets, sometimes surpassing it by large margins. This suggests that
+the gap between unsupervised and supervised representation learning has been largely closed in many vision task',9,2,
+'https://github.com/learner-lu/library-system/releases/download/v0.0.1/He_Momentum_Contrast_for_Unsupervised_Visual_Representation_Learning_CVPR_2020_paper.pdf');
 
 CREATE TABLE lend_list (
 	ser_num BIGSERIAL PRIMARY KEY,

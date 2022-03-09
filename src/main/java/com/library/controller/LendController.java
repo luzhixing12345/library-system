@@ -2,6 +2,7 @@ package com.library.controller;
 
 import com.library.bean.ReaderCard;
 import com.library.service.BookService;
+import com.library.service.PaperService;
 import com.library.service.LendService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +20,9 @@ public class LendController {
     @Autowired
     private BookService bookService;
 
+    @Autowired
+    private PaperService paperService;
+
     @RequestMapping("/deletebook.html")
     public String deleteBook(HttpServletRequest request, RedirectAttributes redirectAttributes) {
         long bookId = Long.parseLong(request.getParameter("bookId"));
@@ -30,6 +34,16 @@ public class LendController {
         return "redirect:/admin_books.html";
     }
 
+    @RequestMapping("/deletepaper.html")
+    public String deletePaper(HttpServletRequest request, RedirectAttributes redirectAttributes) {
+        long paperId = Long.parseLong(request.getParameter("paperId"));
+        if (paperService.deletePaper(paperId)) {
+            redirectAttributes.addFlashAttribute("succ", "论文删除成功！");
+        } else {
+            redirectAttributes.addFlashAttribute("error", "论文删除失败！");
+        }
+        return "redirect:/admin_papers.html";
+    }
     @RequestMapping("/lendlist.html")
     public ModelAndView lendList(HttpServletRequest request) {
         ModelAndView modelAndView = new ModelAndView("admin_lend_list");

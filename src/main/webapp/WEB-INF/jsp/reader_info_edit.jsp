@@ -9,13 +9,6 @@
         $(function () {
             $('#header').load('reader_header.html');
         })
-        function checkname(){
-            var name = document.getElementById("name");
-            var regex = /^[\u4e00-\u9fa5]{2,4}$/
-            if (!regex(name)){
-                $(this).parent().next().html("用户名必须是2-4个汉字").css("color", "red");
-            }
-        }
     </script>
 </head>
 <body background="img/lizhi.jpg" style=" background-repeat:no-repeat ;
@@ -34,6 +27,7 @@ background-attachment: fixed;">
                 <div class="input-group">
                     <span  class="input-group-addon">读者证号</span>
                     <input type="text" readonly="readonly" class="form-control" name="readerId" id="readerId" value="${readerinfo.readerId}">
+                    <span>hello</span>
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon">姓名</span>
