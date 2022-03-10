@@ -30,7 +30,7 @@
     ```
   - 将`./library.sql`,`./delete.sql`传入服务器某一文件夹下,例(opt/software/),SQL导入数据
     >其中`library.sql`内为所有的SQL语句,包括创建表,导入初始数据等,`delete.sql`为删除表操作,当然你可以新建数据库 `library`然后直接`drop database library`也可以,本文采用删除数据库中的表的形式,默认数据库名为(postgres),端口号5432<br>
-    >关于 `BIGSERIAL`,该用法为自增,参考[网站](https://www.w3cschool.cn/qysrc/qysrc-6ea8376f.html)<br>
+    >关于 `BIGSERIAL`,该用法为自增,参考[网站](https://www.w3cschool.cn/qysrc/qysrc-6ea8376f.html)<br>$$
     >**opengauss与mysql数据库写法不同,需要更改语句,不能直接使用**<br>  
 
     ```shell
@@ -44,8 +44,6 @@
 - step2: run
   - 第一次使用
     ```shell
-    mvn clean compile
-    mvn clean package
     mvn clean install
     mvn jetty:run
     localhost:8080
